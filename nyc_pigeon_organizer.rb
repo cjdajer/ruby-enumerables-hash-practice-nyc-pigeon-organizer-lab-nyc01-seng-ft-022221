@@ -1,17 +1,25 @@
 require 'pry'
 
 def nyc_pigeon_organizer(data)
-  final_resuts = data.each_with_objects({}) do |(key, value), fianl_array|
-    value.each do |inner_key, names|
+  new_hash = {}
+  data.each do |key, Value|
+    value.each do |new_value, names|
       names.each do |name|
-        if !final_array[name]
-          final_array[name] = {}
+        
+        if !new_hash[name]
+          new_hash[name] = {}
         end 
-        if !final_array[name][key]
-          !final_array[name][key] = []
+        
+        if !new_hash[name][key]
+          new_hash[name][key] = []
+        end 
+        
+        new_hash[name][key] = []
+        
+        new_hash[name][key] << new_value.to_s 
+        
+      end
     end 
-    fianl_array [name][key].push(inner_key)
-end
+  end 
+  new_hash
 end 
-end
-end
